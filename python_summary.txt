@@ -1,0 +1,22 @@
+python summary
+Python is a programming language . It is easy to learn and read . 
+we use python to create programs, build websites, and develop artificial intelligence applications.
+python has many advantages. It is free to use, and its syntax is simple. 
+However, pythan also has some disadvantages.
+It can be slower than c++ and may use more memory.
+Overall Python is a good programming language for beginners.
+
+
+Waht is pseudocode?
+pseudocode for Reading a file:
+Start 
+  choose a File
+  If the file exists THEN
+     OPEN the File
+     READ the Conntents 
+     DISPLAY the contents
+     CLOSE the file
+ELSE 
+    DISPLAY "file not found"
+End IF 
+END
