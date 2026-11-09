@@ -7,7 +7,9 @@ It can be slower than c++ and may use more memory.
 Overall Python is a good programming language for beginners.
 
 
-Waht is pseudocode?
+What is pseudocode?
+pseudocode is a simple way to describe the steps of program without writing real code
+
 pseudocode for Reading a file:
 Start 
   choose a File
