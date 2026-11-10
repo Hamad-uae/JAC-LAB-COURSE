@@ -31,3 +31,19 @@ encrypted = encrypt_text(message)
 
 print("Original:", message)
 print("Encrypted:", encrypted)
+
+
+
+
+# Explanation of return result[::-1]
+#
+# result[::-1] reverses the order of the characters.
+# The -1 means reading the string backwards.
+# return sends the reversed string back to the caller.
+#
+# Example:
+# Original text: Hamad
+# After shifting +2: Jcocf
+# After reversing: fcocJ
+#
+# This is my Shift and Reverse encryption method.
