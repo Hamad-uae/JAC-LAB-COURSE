@@ -1,0 +1,31 @@
+# Module 4 - Exercise 01: SQL Life
+
+**What is SQL?**
+
+SQL stands for Structured Query Language. It is a programming language used to communicate with relational databases. SQL allows users to store, retrieve, update, and delete data.
+
+**Why do we use SQL?**
+
+We use SQL to manage and organize information in databases. It helps applications store information such as names, ages, phone numbers, and product details.
+
+SQL is useful because it makes searching, updating, and managing large amounts of data easier.
+
+**Who created SQL?**
+
+SQL was developed by Donald D. Chamberlin and Raymond F. Boyce at IBM during the 1970s. Their work was based on the relational database model introduced by Edgar F. Codd.
+
+**Common SQL Commands**
+
+- SELECT: Retrieve data from a database.
+- INSERT: Add new data to a table.
+- UPDATE: Modify existing data.
+- DELETE: Remove data from a table.
+- CREATE TABLE: Create a new table.
+
+**What is SQLite3?**
+
+SQLite3 is a lightweight database system that uses SQL. Python includes a built-in sqlite3 module, which allows Python programs to create and manage SQLite databases.
+
+**Conclusion**
+
+SQL is an important language for software development. It helps developers manage information efficiently and is widely used in websites, applications, and business systems.
