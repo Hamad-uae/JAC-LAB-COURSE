@@ -1,0 +1,94 @@
+
+# Module 4 - Exercise 05: Adjust and Forget
+# Change an existing task for 15 seconds.
+# Then restore its original values.
+
+import sqlite3
+import time
+from pathlib import Path
+
+# Locate the existing database.
+DB_FILE = Path(__file__).with_name("tasks.db")
+
+# Select the task to update.
+TASK_ID = 1
+
+
+def adjust_and_forget():
+
+    # Check if the database exists.
+    if not DB_FILE.exists():
+        print("Error: tasks.db not found!")
+        return
+
+    # Connect to the database.
+    connection = sqlite3.connect(DB_FILE)
+    changed = False
+    original = None
+
+    try:
+        cursor = connection.cursor()
+
+        # Read the original values.
+        cursor.execute(
+            "SELECT title, status FROM tasks WHERE id = ?",
+            (TASK_ID,)
+        )
+
+        original = cursor.fetchone()
+
+        if original is None:
+            print("Task not found!")
+            return
+
+        print("Original values:", original)
+
+        # Give the user time to open HeidiSQL.
+        input("Open HeidiSQL, then press Enter...")
+
+        # Temporarily update the task.
+        cursor.execute("""
+            UPDATE tasks
+            SET title = ?, status = ?
+            WHERE id = ?
+        """, ("Temporary Task", "in_progress", TASK_ID))
+
+        connection.commit()
+        changed = True
+
+        print("Task updated!")
+        print("Refresh HeidiSQL now!")
+        print("Waiting 15 seconds...")
+
+        # Wait for 15 seconds.
+        time.sleep(15)
+
+    except sqlite3.Error as error:
+        print("Database Error:", error)
+
+    finally:
+        # Restore original values after waiting.
+        # Also restore if the program is interrupted.
+        if changed:
+            try:
+                cursor.execute("""
+                    UPDATE tasks
+                    SET title = ?, status = ?
+                    WHERE id = ?
+                """, (original[0], original[1], TASK_ID))
+
+                connection.commit()
+
+                print("Original values restored!")
+                print("Refresh HeidiSQL again!")
+
+            except sqlite3.Error as error:
+                print("Restore Error:", error)
+
+        # Close the connection.
+        connection.close()
+
+
+# Run the program.
+if __name__ == "__main__":
+    adjust_and_forget()
