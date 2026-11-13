@@ -1,0 +1,96 @@
+
+# Module 4 - Exercise 06: Missing Schema
+# Add a new column called missing_field.
+# Fill it with one random character for each task.
+
+import sqlite3
+import random
+import string
+from pathlib import Path
+
+# Use the database from previous exercises.
+DB_FILE = Path(__file__).with_name("hamad_module4_4.db")
+
+
+def add_missing_field():
+
+    # Check if the database exists.
+    if not DB_FILE.is_file():
+        print("Error: Database file not found!")
+        return
+
+    # Connect to the SQLite database.
+    connection = sqlite3.connect(DB_FILE)
+
+    try:
+        cursor = connection.cursor()
+
+        # Check if the tasks table exists.
+        cursor.execute("""
+            SELECT name FROM sqlite_master
+            WHERE type = 'table' AND name = 'tasks'
+        """)
+
+        if cursor.fetchone() is None:
+            print("Error: tasks table not found!")
+            return
+
+        # Get the existing columns.
+        cursor.execute("PRAGMA table_info(tasks)")
+        columns = [row[1] for row in cursor.fetchall()]
+
+        # Add the missing_field column if needed.
+        if "missing_field" not in columns:
+            cursor.execute("""
+                ALTER TABLE tasks
+                ADD COLUMN missing_field TEXT
+            """)
+            print("New column added: missing_field")
+        else:
+            print("Column already exists.")
+
+        # Read all task IDs.
+        cursor.execute("SELECT id FROM tasks")
+        tasks = cursor.fetchall()
+
+        # Generate one random letter for each task.
+        for task in tasks:
+            task_id = task[0]
+            random_letter = random.choice(
+                string.ascii_letters
+            )
+
+            # Save the random letter in the new column.
+            cursor.execute("""
+                UPDATE tasks
+                SET missing_field = ?
+                WHERE id = ?
+            """, (random_letter, task_id))
+
+        # Save all database changes.
+        connection.commit()
+
+        # Display the updated records.
+        cursor.execute("""
+            SELECT id, title, missing_field
+            FROM tasks
+        """)
+
+        print("\nUpdated Tasks:")
+
+        for row in cursor.fetchall():
+            print(row)
+
+        print("\nExercise 06 completed!")
+
+    except sqlite3.Error as error:
+        print("Database Error:", error)
+
+    finally:
+        # Close the database connection.
+        connection.close()
+
+
+# Run the program.
+if __name__ == "__main__":
+    add_missing_field()
