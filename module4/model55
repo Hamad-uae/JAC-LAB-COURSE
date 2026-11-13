@@ -92,3 +92,9 @@ def adjust_and_forget():
 # Run the program.
 if __name__ == "__main__":
     adjust_and_forget()
+
+
+
+ 
+python -c "import sqlite3; c=sqlite3.connect('tasks.db'); print(c.execute('SELECT id, title, status FROM tasks').fetchall()); c.close()"
+
