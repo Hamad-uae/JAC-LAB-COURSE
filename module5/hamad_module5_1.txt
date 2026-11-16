@@ -1,0 +1,153 @@
+# Module 5 – Exercise 01: AI and LLM
+
+## 1. What is Artificial Intelligence (AI)?
+
+Artificial Intelligence (AI) is a field of computer science that develops systems capable of performing tasks that normally require human intelligence.
+
+Examples include understanding language, recognizing images, solving problems, making predictions, and assisting with decisions.
+
+AI is used in virtual assistants, translation applications, recommendation systems, and self-driving technologies.
+
+## 2. What is a Large Language Model (LLM)?
+
+A Large Language Model (LLM) is an AI model trained on large amounts of text and other data to understand and generate language.
+
+LLMs can answer questions, summarize documents, translate languages, write Python code, and assist with learning.
+
+Examples include models used by ChatGPT, Claude, and Gemini.
+
+An LLM is one type of AI, but not every AI system is an LLM.
+
+## 3. What is LLM Model Size?
+
+Model size commonly refers to the number of parameters inside a language model.
+
+For example, a model with 7 billion parameters is often called a 7B model.
+
+A larger model may require more memory and computing resources. However, a larger model is not always more accurate or better than a smaller model.
+
+The size of a model can also refer to the amount of storage or memory needed to run it.
+
+## 4. What is a Token and How Does Tokenization Work?
+
+A token is a unit of text processed by an LLM.
+
+A token can represent a whole word, part of a word, a punctuation mark, or another text segment.
+
+Tokenization is the process of dividing text into tokens and converting those tokens into numerical IDs that the model can process.
+
+For example, a sentence such as "I love Python" is divided into tokens according to the model's tokenizer.
+
+The exact number of tokens depends on the tokenizer.
+
+## 5. What Are Parameters in an LLM?
+
+Parameters are numerical values, including weights, that the model learns during training.
+
+They help the model recognize patterns and generate predictions.
+
+The number of parameters is one measure of model size.
+
+For example, a model containing 7 billion parameters has approximately 7 billion learned numerical values.
+
+However, model performance also depends on training data, architecture, and training methods.
+
+## 6. What is Model Fine-Tuning?
+
+Fine-tuning is the process of continuing the training of a pretrained model using additional data for a particular task or domain.
+
+For example, a general language model can be fine-tuned using programming examples to improve its performance on certain coding tasks.
+
+Fine-tuning changes model parameters or selected trainable components and generally requires training data and computing resources.
+
+## 7. What is Prompt Engineering? How Is It Different from Fine-Tuning?
+
+Prompt engineering is the process of writing clear instructions and providing useful examples or context to obtain better results from an AI model.
+
+Example:
+
+"Explain Python loops to a beginner and provide three simple examples."
+
+Prompt engineering changes the instructions given to the model without changing its trained parameters.
+
+Fine-tuning changes model behavior through additional training.
+
+Prompt engineering is usually easier and less expensive, while fine-tuning may help with repeated specialized tasks.
+
+## 8. What Are Embeddings and Why Are They Important?
+
+Embeddings are numerical vectors that represent information such as text according to learned features and meaning.
+
+Texts with similar meanings can have similar embeddings.
+
+Embeddings are useful for semantic search, document retrieval, recommendation systems, and RAG applications.
+
+For example, a search system can find documents related to "learning Python" even when they do not contain exactly the same words as the user's question.
+
+## 9. What Is the Context Window of an LLM?
+
+The context window is the amount of information, commonly measured in tokens, that an LLM can consider during one request.
+
+Depending on the system, this may include instructions, conversation history, documents, source code, and generated output.
+
+Context windows are important when working with large Python projects because a model may need to understand several files at the same time.
+
+When relevant information does not fit into the available context, it may need to be summarized or retrieved separately.
+
+## 10. What Are LLM Hallucinations and Limitations?
+
+An LLM hallucination happens when a model generates incorrect or unsupported information that may sound convincing.
+
+For example, a model might invent a Python function or provide an incorrect explanation.
+
+Other limitations include inaccurate calculations, outdated information, misunderstanding instructions, and generating code containing errors.
+
+Important outputs should be checked using reliable sources, software tests, or human review.
+
+## 11. How Can an LLM Interact with Computers? What Is RAG?
+
+An LLM can interact with computer systems through software tools, APIs, and application integrations when it has been given the necessary access.
+
+For example, a Python application can allow an LLM to search a database, analyze a file, or call a permitted function.
+
+RAG stands for Retrieval-Augmented Generation.
+
+RAG retrieves relevant information from external sources, such as documents or databases, and provides it to the language model when answering a question.
+
+For example, an AI assistant can search a collection of Python course documents and use the retrieved information to answer questions.
+
+RAG does not require retraining the original LLM and can make answers more relevant to specific documents.
+
+## 12. Three Useful Frameworks for Starting LLM Development
+
+**1. LangChain**
+
+LangChain is a Python framework for developing LLM-powered applications and agents.
+
+It helps developers connect language models with prompts, tools, APIs, and external data.
+
+Website: https://docs.langchain.com/
+
+**2. LlamaIndex**
+
+LlamaIndex is a framework for connecting language models with documents and other data sources.
+
+It is particularly useful for RAG applications, document search, and question-answering systems.
+
+Website: https://developers.llamaindex.ai/
+
+**3. Hugging Face Transformers**
+
+Transformers is a Python library for loading, running, and fine-tuning pretrained AI models.
+
+It is useful for learning how language models work and experimenting with different models.
+
+Website: https://huggingface.co/docs/transformers/
+
+## Conclusion
+
+AI is a broad field that includes many intelligent technologies. LLMs are AI models designed to process and generate language.
+
+Understanding tokens, parameters, context windows, embeddings, prompt engineering, fine-tuning, and RAG is important when building applications with AI.
+
+Python frameworks such as LangChain, LlamaIndex, and Transformers provide useful tools for developing LLM-based projects.
