@@ -1,0 +1,12 @@
+
+# Reuse Exercise 04 Docker Image
+FROM hamad-module7-4:latest
+
+# Working directory
+WORKDIR /app
+
+# Copy the new Python program
+COPY hamad_module7_5.py .
+
+# Run Exercise 05
+CMD ["python", "-u", "hamad_module7_5.py"]
