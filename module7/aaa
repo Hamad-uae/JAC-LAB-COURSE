@@ -1,2 +1,0 @@
-Invoke-RestMethod -Method Post -Uri "http://10.1.1.140:8003/server-info"
-
