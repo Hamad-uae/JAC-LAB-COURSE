@@ -1,0 +1,18 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DATA_DIR=/app/data
+ENV API_URL=http://127.0.0.1:8008
+ENV OLLAMA_URL=http://host.docker.internal:11434/api/chat
+ENV OLLAMA_MODEL=qwen3:4b-instruct
+
+COPY requirements.txt .
+RUN python -m pip install --no-cache-dir -r requirements.txt
+
+COPY hamad_module8_4_api.py hamad_module8_4_mcp.py hamad_module8_4_ui.html ./
+RUN mkdir -p /app/data
+
+EXPOSE 8008
+CMD ["python", "-m", "uvicorn", "hamad_module8_4_api:app", "--host", "0.0.0.0", "--port", "8008"]
